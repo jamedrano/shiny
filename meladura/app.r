@@ -10,8 +10,7 @@ datos$valorDia = as.numeric(datos$VALOR_DIA)
 
 fechaini = as.POSIXlt("2018-11-11",format="%Y-%m-%d")
 fechafin = as.POSIXlt("2019-05-09",format="%Y-%m-%d")
-datos$DIAZAFRA = (as.numeric(datos$FECHA - fechaini, units="days") + 1)*((datos$FECHA >= fechaini)&(datos$FECHA<= fechafin))
-)
+datos$DIAZAFRA = (as.numeric(datos$FECHA - fechaini, units="days") + 1)*((datos$FECHA >= fechaini)&(datos$FECHA<= fechafin)))
 diaszafra = max(datos$DIAZAFRA)
 
 ui <- fluidPage(
