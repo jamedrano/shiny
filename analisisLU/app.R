@@ -115,7 +115,7 @@ server <- function(input, output) {
   
   output$varHist <- renderPlot({
     valores = zafra$valorDia[(zafra$VARIA==input$variable)]
-    hist(valores[input$diazafra[1]:input$diazafra[2]],col="brown",xlab=input$variable)
+    hist(valores[input$diazafra[1]:input$diazafra[2]],col="brown",xlab=input$variable,main="Histograma")
     abline(v=c(input$minspec,input$maxspec),col="green")
     abline(v=mean(valores[input$diazafra[1]:input$diazafra[2]]),col="red",lwd=2)
   })
