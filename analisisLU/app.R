@@ -2,6 +2,8 @@ library(shiny)
 library(lubridate)
 library(ggplot2)
 
+setwd("C:/Users/Antonio/Desktop/Material Cursos/CursoLU")
+
 nomvars = read.csv("VARS.csv",header=T,stringsAsFactors = F)
 datos = read.csv("lu.csv",header=T,stringsAsFactors = F)
 datos$FECHA = as.POSIXlt(datos$DATA, format="%Y-%m-%d %H:%M:%S")
