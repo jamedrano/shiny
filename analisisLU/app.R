@@ -51,11 +51,13 @@ ui <- fluidPage(
     mainPanel(
       
       # Output: Formatted text for caption ----
+      
+      
       h3(textOutput("text_calc")),
       
-      h3(textOutput("text_calc2")),
+      verbatimTextOutput("sum"),
       
-      h3(textOutput("text_calc3")),
+      h4(textOutput("text_calc3")),
       
       
       plotOutput("varPlot"),
@@ -83,18 +85,19 @@ server <- function(input, output) {
     paste("% de datos fuera de specs =",round(perout,2))
   })
   
-  output$text_calc2 <- renderText({
-    valores = zafra$valorDia[(zafra$VARIA==input$variable)]
-    val <- valores[input$diazafra[1]:input$diazafra[2]]
-    media <- mean(val)
-    paste("Media = ",round(media,2))
-  })
+  
   
   output$text_calc3 <- renderText({
     valores = zafra$valorDia[(zafra$VARIA==input$variable)]
     val <- valores[input$diazafra[1]:input$diazafra[2]]
     desv <- sd(val)
     paste("Desv Est =", round(desv,2))
+  })
+  
+  output$sum <- renderPrint({
+    valores = zafra$valorDia[(zafra$VARIA==input$variable)]
+    val <- valores[input$diazafra[1]:input$diazafra[2]]
+    summary(val)
   })
   
   output$nomvar = renderText({
